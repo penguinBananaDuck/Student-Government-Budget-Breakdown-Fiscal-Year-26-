@@ -77,6 +77,57 @@
   { "revenueType": "Net Investment Income", "revenueAmount": 80849605, "percentChange": 15.2, "color": "#3cacfd" }
 ],
 
+"_section_student_fees": "Data for Student Fees & Tuition Page",
+
+"FY26_TuitionAndStudentFees_Totals": [
+  { "category": "Laboratory & Supplemental Fees", "amount": 1648500, "color": "#00b18b" },
+  { "category": "Program, Course Related & Other Fees", "amount": 10213163, "color": "#0bbbbb" },
+  { "category": "Mandatory Fee", "amount": 118413195, "color": "#1ae3e1" },
+  { "category": "Net Tuition", "amount": 375953092, "color": "#2ad8fc" }
+],
+
+"FY26_MandatoryFees": [
+  { "category": "Green Fee", "amount": 29901203, "color": "#00b18b" },
+  { "category": "Advising Fee", "amount": 15274245, "color": "#0bbbbb" },
+  { "category": "Infrastructure Fee", "amount": 14658576, "color": "#bb0b0b" },
+  { "category": "Student Business Services Fee", "amount": 13160565, "color": "#b10026" },
+  { "category": "Student Services Fee", "amount": 12925275, "color": "#e31a1c" },
+  { "category": "Library Acquisition Fee", "amount": 10169340, "color": "#fd8d3c" },
+  { "category": "Student Union Fee", "amount": 6217188, "color": "#fc4e2a" },
+  { "category": "Student Services Building Fee", "amount": 4414083, "color": "#dabc9e" },
+  { "category": "Recreation Fee", "amount": 4041097, "color": "#9ebcda" },
+  { "category": "Medical Services Fee", "amount": 2809051, "color": "#3cacfd" },
+  { "category": "Athletic Program Fee", "amount": 2797885, "color": "#2ad8fc" },
+  { "category": "Transportation Fee", "amount": 1110000, "color": "#1ae3e1" },
+  { "category": "Exemption", "amount": 641687, "color": "#0bbbbb" },
+  { "category": "Information Technology Fee", "amount": 293000, "color": "#00b18b" }
+],
+
+"FY26_ProgramCourseOtherFees": [
+  { "category": "Application Fee", "amount": 3200000, "color": "#e31a1c" },
+  { "category": "Global MBA Distance Fee", "amount": 1300000, "color": "#fd8d3c" },
+  { "category": "International Student Special Serv Fee", "amount": 1269000, "color": "#fc4e2a" },
+  { "category": "Credit Card Services Fee", "amount": 1228000, "color": "#bb0b0b" },
+  { "category": "Practice Training Fee", "amount": 814250, "color": "#9ebcda" },
+  { "category": "Bursar Fees, Late Fees", "amount": 690000, "color": "#3cacfd" },
+  { "category": "Faculty Led Student Fee", "amount": 400000, "color": "#2ad8fc" },
+  { "category": "International Education Fee", "amount": 311839, "color": "#00b18b" },
+  { "category": "Ftrip Fee - JSOM Study Abroad", "amount": 300000, "color": "#0bbbbb" },
+  { "category": "Records Processing Fee", "amount": 200000, "color": "#1ae3e1" },
+  { "category": "International Travel Ins Fee", "amount": 66000, "color": "#dabc9e" },
+  { "category": "Record Late/Reinstatement Fee", "amount": 65000, "color": "#b10026" },
+  { "category": "General Studies Distance Education Fee", "amount": 60000, "color": "#bb0b0b" },
+  { "category": "CPT Fee Sharing", "amount": 60000, "color": "#fc4e2a" },
+  { "category": "Ftrip Fee - Geosciences", "amount": 53074, "color": "#fd8d3c" },
+  { "category": "Chec Collin County", "amount": 50000, "color": "#9ebcda" },
+  { "category": "Online Services Fee", "amount": 50000, "color": "#3cacfd" },
+  { "category": "SA Fee - Application", "amount": 40000, "color": "#2ad8fc" },
+  { "category": "Student Teaching Fee", "amount": 20000, "color": "#00b18b" },
+  { "category": "Library Fines/Lost Book Fund", "amount": 20000, "color": "#0bbbbb" },
+  { "category": "Physical Instruction Fee", "amount": 6000, "color": "#1ae3e1" },
+  { "category": "EIPP Fee - Indust Practice Pgm", "amount": 10000, "color": "#dabc9e" }
+],
+
 "_section2": "Additional Data for Budget Cuts Page",
 
 "FY25_Operating_Revenue":[

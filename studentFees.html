@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Dashboard</title>
+    <title>Student Fees & Tuition</title>
     
     <link rel="stylesheet" href="styles.css">
 
@@ -18,39 +18,49 @@
         <nav class="sidebar">
             <h2>UTD Budget</h2>
             <ul>
-                <li><a href="index.html" class="active">Fall 25 - Spring 26 Budget</a></li>
+                <li><a href="index.html">Fall 25 - Spring 26 Budget</a></li>
                 <li><a href="budgetCuts.html">Budget Cuts</a></li>
                 <li><a href="#">Budget Over Time</a></li>
-                <li><a href="studentFees.html">Student Fees</a></li>
+                <li><a href="studentFees.html" class="active">Student Fees</a></li>
                 <li><a href="#">Budget by School </a></li>
                 <li><a href="#">Auxiliary Budget</a></li>
                 <li><a href="#">Credits</a></li>
-                
-
             </ul>
         </nav>
 
         <main class="main-content">
             <header>
-                <h1>The University of Texas at Dallas Budget Breakdown</h1>
+                <h1>Student Fees & Tuition</h1>
                 <p>Fiscal Year 2026</p>
             </header>
 
             <section class="charts-grid">
-                
+
                 <div class="chart-card">
-                    <h3>Operating Revenue</h3>
-                    <div id="chart_Operating_Revenue26"></div>
+                    <h3>Mandatory Fee Breakdown</h3>
+                    <div id="chart_MandatoryFeeBreakdown"></div>
                 </div>
 
                 <div class="chart-card">
-                    <h3>Non-operating Revenue</h3>
-                    <div id="chart_Non-operating_Revenue26"></div>
+                    <h3>Program, Course Related & Other Fees Breakdown</h3>
+                    <div id="chart_ProgramFeesBreakdown"></div>
                 </div>
 
                 <div class="chart-card">
-                    <h3>Expense</h3>
-                    <div id="chart_Expense26"></div>
+                    <h3>Tuition and Student Fees</h3>
+                    <div id="chart_StudentFeesTotals"></div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Tuition and Student Fees (Overview)</h3>
+                    <div id="chart_StudentFeesOverview"></div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Student Fees and Tuition (Data)</h3>
+                    <div class="fees-table-wrap">
+                        <div class="fees-table" id="studentFeesTable"></div>
+                    </div>
                 </div>
 
             </section>

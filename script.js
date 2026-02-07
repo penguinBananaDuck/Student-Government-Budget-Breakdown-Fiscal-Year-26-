@@ -341,6 +341,309 @@ am5.ready(function() {
     }
 
     // ============================================================
+    // Student Fees Graph Builders
+    // ============================================================
+
+    function buildStudentFeesTotals(divID, datasetKey) {
+
+        var root = am5.Root.new(divID);
+        root.setThemes([am5themes_Animated.new(root)]);
+
+        const applyColor = (fill, target) => target.dataItem?.dataContext?.color ? am5.color(target.dataItem.dataContext.color) : fill;
+
+        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+            layout: root.verticalLayout,
+            paddingLeft: 10,
+            paddingRight: 10,
+            paddingTop: 20
+        }));
+
+        var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+            categoryField: "category",
+            renderer: am5xy.AxisRendererX.new(root, { minGridDistance: 30 })
+        }));
+
+        xAxis.get("renderer").labels.template.setAll({
+            fontSize: 12,
+            fontWeight: "500",
+            maxWidth: 160,
+            oversizedBehavior: "wrap",
+            textAlign: "center",
+            centerX: am5.p50,
+            paddingTop: 8
+        });
+
+        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+            renderer: am5xy.AxisRendererY.new(root, {}),
+            min: 0,
+            extraMax: 0.2,
+            numberFormat: "$#.0a"
+        }));
+
+        var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: "amount",
+            categoryXField: "category",
+            sequencedInterpolation: true
+        }));
+
+        series.columns.template.setAll({
+            cornerRadiusTL: 6,
+            cornerRadiusTR: 6,
+            strokeOpacity: 0
+        });
+
+        series.columns.template.adapters.add("fill", applyColor);
+        series.columns.template.adapters.add("stroke", applyColor);
+
+        series.set("maskBullets", false);
+        series.bullets.push(function() {
+            return am5.Bullet.new(root, {
+                locationY: 1,
+                sprite: am5.Label.new(root, {
+                    text: "{valueY.formatNumber('$#.0a')}",
+                    populateText: true,
+                    centerX: am5.p50,
+                    centerY: am5.p100,
+                    dy: -10,
+                    fontSize: 14,
+                    fontWeight: "bold",
+                    fill: am5.color(0x000000)
+                })
+            });
+        });
+
+        fetch("data.json")
+        .then(response => response.json())
+        .then(fullData => {
+
+            let currentData = fullData[datasetKey];
+            if(!currentData) { console.error("Missing data:", datasetKey); return; }
+
+            series.data.setAll(currentData);
+            xAxis.data.setAll(currentData);
+
+            series.appear(1000, 100);
+        });
+
+    }
+
+    function buildFeesBreakdown(divID, datasetKey, labelTitle) {
+
+        var root = am5.Root.new(divID);
+        root.setThemes([ am5themes_Animated.new(root) ]);
+
+        var mainContainer = root.container.children.push(am5.Container.new(root, {
+            layout: root.horizontalLayout,
+            width: am5.percent(100),
+            height: am5.percent(100)
+        }));
+
+        const applyColor = (graphics, target) => {
+            return target.dataItem?.dataContext?.color ? am5.color(target.dataItem.dataContext.color) : graphics;
+        };
+
+        var barChart = mainContainer.children.push(am5xy.XYChart.new(root, {
+            width: am5.percent(70),
+            layout: root.verticalLayout,
+            paddingRight: 90,
+            paddingLeft: 10
+        }));
+
+        var yAxis = barChart.yAxes.push(am5xy.CategoryAxis.new(root, {
+            categoryField: "category",
+            renderer: am5xy.AxisRendererY.new(root, { inversed: true, cellStartLocation: 0.1, cellEndLocation: 0.9, minGridDistance: 20 })
+        }));
+
+        yAxis.get("renderer").labels.template.setAll({
+            fontSize: 11,
+            fontWeight: "500",
+            maxWidth: 170,
+            oversizedBehavior: "wrap",
+            textAlign: "right",
+            centerY: am5.p50,
+            paddingRight: 5
+        });
+
+        var xAxis = barChart.xAxes.push(am5xy.ValueAxis.new(root, {
+            renderer: am5xy.AxisRendererX.new(root, { strokeOpacity: 0 }),
+            min: 0, extraMax: 0.25, numberFormat: "$#.0a"
+        }));
+
+        var barSeries = barChart.series.push(am5xy.ColumnSeries.new(root, {
+            xAxis: xAxis, yAxis: yAxis,
+            valueXField: "amount",
+            categoryYField: "category",
+            sequencedInterpolation: true
+        }));
+
+        barSeries.columns.template.adapters.add("fill", applyColor);
+        barSeries.columns.template.adapters.add("stroke", applyColor);
+        barSeries.columns.template.setAll({ height: am5.percent(70), cornerRadiusBR: 5, cornerRadiusTR: 5 });
+
+        barSeries.set("maskBullets", false);
+        barSeries.bullets.push(function() {
+            return am5.Bullet.new(root, {
+                locationX: 1,
+                sprite: am5.Label.new(root, {
+                    text: "{valueX.formatNumber('$#.0a')}",
+                    centerY: am5.p50,
+                    centerX: am5.p0,
+                    populateText: true,
+                    paddingLeft: 5,
+                    fontSize: 12,
+                    fontWeight: "bold",
+                    fill: am5.color(0x000000)
+                })
+            });
+        });
+
+        var pieChart = mainContainer.children.push(am5percent.PieChart.new(root, {
+            layout: root.verticalLayout, innerRadius: am5.percent(60), width: am5.percent(30), radius: am5.percent(85)
+        }));
+
+        var pieSeries = pieChart.series.push(am5percent.PieSeries.new(root, {
+            categoryField: "category",
+            valueField: "amount",
+            alignLabels: false
+        }));
+
+        pieSeries.slices.template.setAll({
+            stroke: am5.color(0xffffff),
+            strokeWidth: 2,
+            tooltipText: "{category}: {valuePercentTotal.formatNumber('#.00')}%"
+        });
+
+        pieSeries.slices.template.adapters.add("fill", applyColor);
+        pieSeries.slices.template.adapters.add("stroke", applyColor);
+
+        pieSeries.labels.template.setAll({ text: "{valuePercentTotal.formatNumber('#.0')}%", fontSize: 11, fontWeight: "bold", radius: 5, inside: false });
+        pieSeries.ticks.template.set("forceHidden", true);
+        pieSeries.labels.template.adapters.add("forceHidden", (forceHidden, target) => target.dataItem.get("valuePercentTotal") < 1.5 ? true : forceHidden);
+
+        fetch("data.json")
+        .then(response => response.json())
+        .then(fullData => {
+
+            let currentData = fullData[datasetKey];
+            if(!currentData) { console.error("Missing data:", datasetKey); return; }
+
+            currentData.sort((a, b) => a.amount - b.amount);
+            let totalVal = getTotal(currentData, "amount");
+
+            pieChart.seriesContainer.children.push(am5.Label.new(root, {
+                textAlign: "center", centerY: am5.percent(50), centerX: am5.percent(50),
+                text: `[fontSize:10px]${labelTitle}[/]\n[bold fontSize:16px]${root.numberFormatter.format(totalVal, "$#.0a")}[/]`
+            }));
+
+            pieSeries.data.setAll(currentData);
+            barSeries.data.setAll(currentData);
+            yAxis.data.setAll(currentData);
+
+            pieSeries.appear(1000, 100);
+            barSeries.appear(1000, 100);
+        });
+
+    }
+
+    function buildStudentFeesTable(containerId, totalsKey, mandatoryKey, programKey) {
+
+        var el = document.getElementById(containerId);
+        if (!el) return;
+
+        const fmtMoney = (n) => {
+            let num = Number(n || 0);
+            return "$ " + num.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        };
+
+        const byOrder = (order) => {
+            let pos = new Map(order.map((x, i) => [x, i]));
+            return (a, b) => (pos.has(a.category) ? pos.get(a.category) : 999) - (pos.has(b.category) ? pos.get(b.category) : 999);
+        };
+
+        const mandatoryOrder = [
+            "Advising Fee",
+            "Athletic Program Fee",
+            "Green Fee",
+            "Information Technology Fee",
+            "Infrastructure Fee",
+            "Library Acquisition Fee",
+            "Medical Services Fee",
+            "Recreation Fee",
+            "Student Business Services Fee",
+            "Student Services Fee",
+            "Student Services Building Fee",
+            "Student Union Fee",
+            "Transportation Fee",
+            "Exemption"
+        ];
+
+        const programOrder = [
+            "Application Fee",
+            "Bursar Fees, Late Fees",
+            "Chec Collin County",
+            "CPT Fee Sharing",
+            "Credit Card Services Fee",
+            "EIPP Fee - Indust Practice Pgm",
+            "Faculty Led Student Fee",
+            "Ftrip Fee - Geosciences",
+            "Ftrip Fee - JSOM Study Abroad",
+            "General Studies Distance Education Fee",
+            "Global MBA Distance Fee",
+            "International Education Fee",
+            "International Student Special Serv Fee",
+            "International Travel Ins Fee",
+            "Library Fines/Lost Book Fund",
+            "Online Services Fee",
+            "Physical Instruction Fee",
+            "Practice Training Fee",
+            "Record Late/Reinstatement Fee",
+            "Records Processing Fee",
+            "SA Fee - Application",
+            "Student Teaching Fee"
+        ];
+
+        fetch("data.json")
+        .then(r => r.json())
+        .then(fullData => {
+
+            let totals = fullData[totalsKey] || [];
+            let mandatory = (fullData[mandatoryKey] || []).slice().sort(byOrder(mandatoryOrder));
+            let program = (fullData[programKey] || []).slice().sort(byOrder(programOrder));
+
+            let totalsMap = new Map(totals.map(x => [x.category, x.amount]));
+
+            let netTuition = totalsMap.get("Net Tuition") || 0;
+            let labSupp = totalsMap.get("Laboratory & Supplemental Fees") || 0;
+            let mandatoryTotal = totalsMap.get("Mandatory Fee") || 0;
+            let programTotal = totalsMap.get("Program, Course Related & Other Fees") || 0;
+            let grandTotal = netTuition + labSupp + mandatoryTotal + programTotal;
+
+            let html = "";
+            html += `<div class="fees-row fees-head"><div>Division</div><div class="fees-num">Total</div></div>`;
+
+            html += `<div class="fees-row fees-section"><div>Net Tuition</div><div class="fees-num">${fmtMoney(netTuition)}</div></div>`;
+            html += `<div class="fees-row"><div>Laboratory & Supplemental Fees</div><div class="fees-num">${fmtMoney(labSupp)}</div></div>`;
+
+            html += `<div class="fees-row fees-section"><div>Mandatory Fee</div><div class="fees-num">${fmtMoney(mandatoryTotal)}</div></div>`;
+            for (let item of mandatory) {
+                html += `<div class="fees-row fees-sub"><div>${item.category}</div><div class="fees-num">${fmtMoney(item.amount)}</div></div>`;
+            }
+
+            html += `<div class="fees-row fees-section"><div>Program, Course Related & Other Fees</div><div class="fees-num">${fmtMoney(programTotal)}</div></div>`;
+            for (let item of program) {
+                html += `<div class="fees-row fees-sub"><div>${item.category}</div><div class="fees-num">${fmtMoney(item.amount)}</div></div>`;
+            }
+
+            html += `<div class="fees-row fees-total"><div>Total Tuition and Student Fees</div><div class="fees-num">${fmtMoney(grandTotal)}</div></div>`;
+
+            el.innerHTML = html;
+        });
+
+    }
+
+    // ============================================================
     // EXECUTE (Only if elements exist)
     // ============================================================
     
@@ -386,6 +689,28 @@ am5.ready(function() {
         buildComparison("chart_Expense25", "chart_ExpenseChange26", "FY25_Expense", "FY26_Expense", true);
     }
 
+    // ============================================================
+    // Page: Student Fees
+    // ============================================================
+
+    if (document.getElementById("chart_StudentFeesTotals")) {
+        buildStudentFeesTotals("chart_StudentFeesTotals", "FY26_TuitionAndStudentFees_Totals");
+    }
+
+    if (document.getElementById("chart_StudentFeesOverview")) {
+        buildFeesBreakdown("chart_StudentFeesOverview", "FY26_TuitionAndStudentFees_Totals", "TOTAL REVENUE");
+    }
+
+    if (document.getElementById("chart_MandatoryFeeBreakdown")) {
+        buildFeesBreakdown("chart_MandatoryFeeBreakdown", "FY26_MandatoryFees", "TOTAL MANDATORY");
+    }
+
+    if (document.getElementById("chart_ProgramFeesBreakdown")) {
+        buildFeesBreakdown("chart_ProgramFeesBreakdown", "FY26_ProgramCourseOtherFees", "TOTAL PROGRAM");
+    }
+
+    if (document.getElementById("studentFeesTable")) {
+        buildStudentFeesTable("studentFeesTable", "FY26_TuitionAndStudentFees_Totals", "FY26_MandatoryFees", "FY26_ProgramCourseOtherFees");
+    }
+
 });
-
-

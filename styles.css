@@ -125,7 +125,60 @@ header p {
 #chart_Operating_Revenue25, #chart_Operating_Revenue26, #chart_Operating_RevenueChange26,
 #chart_Non-operating_Revenue25, #chart_Non-operating_Revenue26, #chart_Non-operating_RevenueChange26,
 #chart_Expense25, #chart_Expense26, #chart_ExpenseChange26,
-#chart_ecs_Expense {
+#chart_ecs_Expense,
+#chart_StudentFeesTotals, #chart_StudentFeesOverview, #chart_MandatoryFeeBreakdown, #chart_ProgramFeesBreakdown {
     width: 100%;
     height: 500px; /* Tall enough for both Pie and Bar */
+}
+
+#chart_StudentFeesTotals { height: 520px; }
+#chart_StudentFeesOverview { height: 520px; }
+#chart_MandatoryFeeBreakdown { height: 720px; }
+#chart_ProgramFeesBreakdown { height: 980px; }
+
+.fees-table-wrap {
+    overflow-x: auto;
+}
+
+.fees-table {
+    border: 1px solid #e1e4e8;
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 520px;
+}
+
+.fees-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 20px;
+    padding: 10px 14px;
+    border-top: 1px solid #eef1f4;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.fees-head {
+    border-top: 0;
+    background: #f7f9fb;
+    font-weight: 700;
+}
+
+.fees-num {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.fees-section {
+    background: #fbfdff;
+    font-weight: 700;
+}
+
+.fees-sub {
+    padding-left: 34px;
+    color: #51616f;
+}
+
+.fees-total {
+    background: #f7f9fb;
+    font-weight: 800;
 }
