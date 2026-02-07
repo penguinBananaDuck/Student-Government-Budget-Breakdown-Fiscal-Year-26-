@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auxiliary Budget</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="sidebar">
+            <h2>UTD Budget</h2>
+            <ul>
+                <li><a href="index.html">Fall 25 - Spring 26 Budget</a></li>
+                <li><a href="budgetCuts.html">Budget Cuts</a></li>
+                <li><a href="#">Budget Over Time</a></li>
+                <li><a href="#">Student Fees</a></li>
+                <li><a href="#">Budget by School </a></li>
+                <li><a href="aux-budget.html" class="active">Auxiliary Budget</a></li>
+                <li><a href="#">Credits</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1>Auxiliary Budget</h1>
+                <p>Fiscal Year 2026</p>
+            </header>
+
+            <section class="charts-grid">
+                <div class="chart-card">
+                    <h3>Housing</h3>
+                    <div id="housingChart"></div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>University Recreation</h3>
+                    <div id="urecChart"></div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Parking & Transportation</h3>
+                    <div id="parkingChart"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+    am5.ready(function () {
+        const themeColors = [
+            "#00b18b",
+            "#0bbbbb",
+            "#1ae3e1",
+            "#2ad8fc",
+            "#3cacfd",
+            "#9ebcda",
+            "#dabc9e",
+            "#fd8d3c",
+            "#fc4e2a",
+            "#e31a1c",
+            "#bb0b0b",
+            "#b10026"
+        ];
+
+        const palette = {
+            BudgetedExpenses: themeColors[0],
+            DebtService: themeColors[3],
+            TotalTransfers: themeColors[7],
+            Revenue: themeColors[4]
+        };
+
+        const units = [
+            {
+                id: "housingChart",
+                title: "Housing",
+                values: {
+                    revenue: 46424777,
+                    budgetedExpenses: 16970207,
+                    debtService: 16710535,
+                    totalTransfers: 6182108
+                }
+            },
+            {
+                id: "urecChart",
+                title: "University Recreation",
+                values: {
+                    revenue: 100000,
+                    budgetedExpenses: 2568655,
+                    debtService: 0,
+                    totalTransfers: 2468655
+                }
+            },
+            {
+                id: "parkingChart",
+                title: "Parking & Transportation",
+                values: {
+                    revenue: 8480000,
+                    budgetedExpenses: 3630759,
+                    debtService: 2774751,
+                    totalTransfers: 1110070
+                }
+            }
+        ];
+
+        const seriesDefs = [
+            { field: "BudgetedExpenses", name: "Budgeted Expenses", color: palette.BudgetedExpenses },
+            { field: "DebtService", name: "Debt Service", color: palette.DebtService },
+            { field: "TotalTransfers", name: "Total Transfers", color: palette.TotalTransfers },
+            { field: "Revenue", name: "Revenue", color: palette.Revenue }
+        ];
+
+        units.forEach(createCategoryChart);
+
+        function createCategoryChart(unit) {
+            const root = am5.Root.new(unit.id);
+            root.setThemes([am5themes_Animated.new(root)]);
+
+            root.numberFormatter.set("bigNumberPrefixes", [
+                { number: 1e3, suffix: "K" },
+                { number: 1e6, suffix: "M" },
+                { number: 1e9, suffix: "B" }
+            ]);
+
+            const chart = root.container.children.push(
+                am5xy.XYChart.new(root, {
+                    layout: root.verticalLayout,
+                    paddingTop: 40,
+                    paddingRight: 30,
+                    paddingLeft: 40,
+                    paddingBottom: 20
+                })
+            );
+
+            const legend = chart.children.unshift(
+                am5.Legend.new(root, {
+                    centerX: am5.percent(50),
+                    x: am5.percent(50),
+                    marginBottom: 18,
+                    paddingBottom: 8,
+                    layout: root.horizontalLayout
+                })
+            );
+            legend.labels.template.setAll({ fontSize: 13, fontWeight: "500" });
+            legend.valueLabels.template.set("forceHidden", true);
+
+            const chartData = [
+                {
+                    category: "Expenses",
+                    BudgetedExpenses: unit.values.budgetedExpenses,
+                    DebtService: unit.values.debtService,
+                    TotalTransfers: unit.values.totalTransfers
+                },
+                {
+                    category: "Revenue",
+                    Revenue: unit.values.revenue
+                }
+            ];
+
+            const xRenderer = am5xy.AxisRendererX.new(root, {
+                cellStartLocation: 0.1,
+                cellEndLocation: 0.9,
+                minGridDistance: 40
+            });
+
+            const xAxis = chart.xAxes.push(
+                am5xy.CategoryAxis.new(root, {
+                    categoryField: "category",
+                    renderer: xRenderer
+                })
+            );
+            xAxis.data.setAll(chartData);
+
+            const yAxis = chart.yAxes.push(
+                am5xy.ValueAxis.new(root, {
+                    renderer: am5xy.AxisRendererY.new(root, { strokeOpacity: 0.1 }),
+                    numberFormat: "$#.#a",
+                    min: 0,
+                    extraMax: 0.05
+                })
+            );
+
+            seriesDefs.forEach((definition) => {
+                const hasNonZeroValue = chartData.some(
+                    (item) => item[definition.field] !== undefined && item[definition.field] > 0
+                );
+
+                const tooltip = am5.Tooltip.new(root, {
+                    paddingTop: 6,
+                    paddingBottom: 6,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    labelText: `${definition.name}: [bold]{valueY}[/]`
+                });
+
+                tooltip.label.setAll({
+                    textAlign: "center",
+                    oversizedBehavior: "wrap",
+                    maxWidth: 220,
+                    fontSize: 12,
+                    fontWeight: "600"
+                });
+
+                tooltip.label.adapters.add("text", function (text, target) {
+                    if (target.dataItem) {
+                        const val = target.dataItem.get("valueY");
+                        if (val !== undefined && val !== null && val !== 0) {
+                            let formattedValue = "";
+                            const absVal = Math.abs(val);
+
+                            if (absVal % 1000 === 0) {
+                                if (absVal >= 1000000000) {
+                                    formattedValue = "$" + absVal / 1000000000 + "B";
+                                } else if (absVal >= 1000000) {
+                                    formattedValue = "$" + absVal / 1000000 + "M";
+                                } else {
+                                    formattedValue = "$" + absVal / 1000 + "K";
+                                }
+                            } else {
+                                formattedValue = root.numberFormatter.format(val, "$#,###");
+                            }
+
+                            return `${definition.name}: [bold]${formattedValue}[/]`;
+                        }
+                    }
+                    return text;
+                });
+
+                const series = chart.series.push(
+                    am5xy.ColumnSeries.new(root, {
+                        name: definition.name,
+                        xAxis,
+                        yAxis,
+                        valueYField: definition.field,
+                        categoryXField: "category",
+                        stacked: true,
+                        tooltip
+                    })
+                );
+
+                if (!hasNonZeroValue) {
+                    series.set("visible", false);
+                }
+
+                series.columns.template.setAll({
+                    fill: am5.color(definition.color),
+                    strokeOpacity: 0,
+                    width: am5.percent(50),
+                    cornerRadiusTL: 7,
+                    cornerRadiusTR: 7,
+                    cornerRadiusBL: 7,
+                    cornerRadiusBR: 7
+                });
+
+                series.bullets.push(() => {
+                    const label = am5.Label.new(root, {
+                        text: `${definition.name}\n$[bold]{valueY.formatNumber('#.#a')}`,
+                        populateText: true,
+                        centerX: am5.percent(50),
+                        centerY: am5.percent(50),
+                        fill: am5.color(0xffffff),
+                        fontSize: 13,
+                        fontWeight: "600",
+                        textAlign: "center",
+                        oversizedBehavior: "wrap",
+                        maxWidth: 170
+                    });
+
+                    label.adapters.add("visible", (_, target) => {
+                        const item = target.dataItem;
+                        return item && (item.get("valueY") || 0) > 0;
+                    });
+
+                    return am5.Bullet.new(root, {
+                        sprite: label,
+                        locationY: 0.5
+                    });
+                });
+
+                series.data.setAll(chartData);
+
+                if (hasNonZeroValue) {
+                    legend.data.push(series);
+                }
+            });
+
+            chart.set("cursor", am5xy.XYCursor.new(root, { behavior: "none" }));
+            chart.appear(900, 120);
+        }
+    });
+    </script>
+
+</body>
+</html>
