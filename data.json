@@ -16,6 +16,34 @@
     { "expenseType": "Other Research Expenses", "expenseAmount": 7992000.00, "color": "#b10026" }
   ],
 
+  "bbs_Expense": [
+    { "expenseType": "Salaries and Wages (Education)", "expenseAmount": 10975474, "color": "#00b18b" },
+    { "expenseType": "Salaries and Wages (Research)", "expenseAmount": 518028, "color": "#0bbbbb" },
+    { "expenseType": "Other Research Expenses", "expenseAmount": 1237000, "color": "#1ae3e1" },
+    { "expenseType": "Behavioral and Brain Sciences", "expenseAmount": 6612333, "color": "#2ad8fc" },
+    { "expenseType": "Neuroscience", "expenseAmount": 1732326, "color": "#3cacfd" },
+    { "expenseType": "Psychology", "expenseAmount": 1379355, "color": "#9ebcda" },
+    { "expenseType": "Speech Language Hearing", "expenseAmount": 884563, "color": "#dabc9e" }
+  ],
+
+  "epps_Expense": [
+    { "expenseType": "Salaries and Wages (Education)", "expenseAmount": 8250727, "color": "#00b18b" },
+    { "expenseType": "Other Research Expenses", "expenseAmount": 192000, "color": "#0bbbbb" },
+    { "expenseType": "Political Science", "expenseAmount": 50077, "color": "#1ae3e1" },
+    { "expenseType": "Economic Political and Policy", "expenseAmount": 5833698, "color": "#2ad8fc" },
+    { "expenseType": "Geography & Geospatial", "expenseAmount": 2055, "color": "#3cacfd" },
+    { "expenseType": "IPE-PPE", "expenseAmount": 2313, "color": "#9ebcda" },
+    { "expenseType": "Institute for Urban Policy", "expenseAmount": 1184, "color": "#dabc9e" },
+    { "expenseType": "Public & Nonprofit Management", "expenseAmount": 356, "color": "#fd8d3c" },
+    { "expenseType": "Sociology", "expenseAmount": 467, "color": "#fc4e2a" },
+    { "expenseType": "Texas Schools Project", "expenseAmount": 59067, "color": "#e31a1c" }
+  ],
+
+  "is_Expense": [
+    { "expenseType": "Salaries and Wages (Education)", "expenseAmount": 1639304, "color": "#00b18a" },
+    { "expenseType": "Interdisciplinary Studies", "expenseAmount": 1057662, "color": "#0bbbbb" }
+  ],
+
   "_section1": "Data for Fiscal Year 2026 Page",
 
   "FY26_Expense": [
@@ -49,6 +77,65 @@
   { "revenueType": "State/Local Sponsored Programs - Nonoperating", "revenueAmount": 4363794, "percentChange": 890.6, "color": "#1ae3e1" },
   { "revenueType": "Gifts in Support of Operations", "revenueAmount": 13585000, "percentChange": -17.4, "color": "#2ad8fc" },
   { "revenueType": "Net Investment Income", "revenueAmount": 80849605, "percentChange": 15.2, "color": "#3cacfd" }
+],
+
+"_section_student_fees": "Data for Student Fees & Tuition Page",
+
+"FY26_TuitionAndStudentFees_Totals": [
+  { "category": "Laboratory & Supplemental Fees", "amount": 1648500, "color": "#00b18b" },
+  { "category": "Program, Course Related & Other Fees", "amount": 10213163, "color": "#0bbbbb" },
+  { "category": "Mandatory Fee", "amount": 118413195, "color": "#1ae3e1" },
+  { "category": "Net Tuition", "amount": 375953092, "color": "#2ad8fc" }
+],
+
+"FY26_MandatoryFees": [
+  { "category": "Green Fee", "amount": 29901203, "color": "#00b18b" },
+  { "category": "Advising Fee", "amount": 15274245, "color": "#0bbbbb" },
+  { "category": "Infrastructure Fee", "amount": 14658576, "color": "#bb0b0b" },
+  { "category": "Student Business Services Fee", "amount": 13160565, "color": "#b10026" },
+  { "category": "Student Services Fee", "amount": 12925275, "color": "#e31a1c" },
+  { "category": "Library Acquisition Fee", "amount": 10169340, "color": "#fd8d3c" },
+  { "category": "Student Union Fee", "amount": 6217188, "color": "#fc4e2a" },
+  { "category": "Student Services Building Fee", "amount": 4414083, "color": "#dabc9e" },
+  { "category": "Recreation Fee", "amount": 4041097, "color": "#9ebcda" },
+  { "category": "Medical Services Fee", "amount": 2809051, "color": "#3cacfd" },
+  { "category": "Athletic Program Fee", "amount": 2797885, "color": "#2ad8fc" },
+  { "category": "Transportation Fee", "amount": 1110000, "color": "#1ae3e1" },
+  { "category": "Exemption", "amount": 641687, "color": "#0bbbbb" },
+  { "category": "Information Technology Fee", "amount": 293000, "color": "#00b18b" }
+],
+
+"FY26_ProgramCourseOtherFees": [
+  { "category": "Application Fee", "amount": 3200000, "color": "#e31a1c" },
+  { "category": "Global MBA Distance Fee", "amount": 1300000, "color": "#fd8d3c" },
+  { "category": "International Student Special Serv Fee", "amount": 1269000, "color": "#fc4e2a" },
+  { "category": "Credit Card Services Fee", "amount": 1228000, "color": "#bb0b0b" },
+  { "category": "Practice Training Fee", "amount": 814250, "color": "#9ebcda" },
+  { "category": "Bursar Fees, Late Fees", "amount": 690000, "color": "#3cacfd" },
+  { "category": "Faculty Led Student Fee", "amount": 400000, "color": "#2ad8fc" },
+  { "category": "International Education Fee", "amount": 311839, "color": "#00b18b" },
+  { "category": "Ftrip Fee - JSOM Study Abroad", "amount": 300000, "color": "#0bbbbb" },
+  { "category": "Records Processing Fee", "amount": 200000, "color": "#1ae3e1" },
+  { "category": "International Travel Ins Fee", "amount": 66000, "color": "#dabc9e" },
+  { "category": "Record Late/Reinstatement Fee", "amount": 65000, "color": "#b10026" },
+  { "category": "General Studies Distance Education Fee", "amount": 60000, "color": "#bb0b0b" },
+  { "category": "CPT Fee Sharing", "amount": 60000, "color": "#fc4e2a" },
+  { "category": "Ftrip Fee - Geosciences", "amount": 53074, "color": "#fd8d3c" },
+  { "category": "Chec Collin County", "amount": 50000, "color": "#9ebcda" },
+  { "category": "Online Services Fee", "amount": 50000, "color": "#3cacfd" },
+  { "category": "SA Fee - Application", "amount": 40000, "color": "#2ad8fc" },
+  { "category": "Student Teaching Fee", "amount": 20000, "color": "#00b18b" },
+  { "category": "Library Fines/Lost Book Fund", "amount": 20000, "color": "#0bbbbb" },
+  { "category": "Physical Instruction Fee", "amount": 6000, "color": "#1ae3e1" },
+  { "category": "EIPP Fee - Indust Practice Pgm", "amount": 10000, "color": "#dabc9e" }
+],
+
+"_section_auxiliary": "Data for Auxiliary Budget Page",
+
+"FY26_Auxiliary_Budget": [
+  { "unit": "Housing", "revenue": 46424777, "budgetedExpenses": 16970207, "debtService": 16710535, "totalTransfers": 6182108 },
+  { "unit": "University Recreation", "revenue": 100000, "budgetedExpenses": 2568655, "debtService": 0, "totalTransfers": 2468655 },
+  { "unit": "Parking & Transportation", "revenue": 8480000, "budgetedExpenses": 3630759, "debtService": 2774751, "totalTransfers": 1110070 }
 ],
 
 "_section2": "Additional Data for Budget Cuts Page",
@@ -386,5 +473,64 @@
   { "year": "2024", "expenseType": "Other Operating Revenues", "expenseAmount": 11673112.74, "color": "#fc4e2a" },
   { "year": "2025", "expenseType": "Other Operating Revenues", "expenseAmount": 12230413, "color": "#fc4e2a" },
   { "year": "2026", "expenseType": "Other Operating Revenues", "expenseAmount": 13922800, "color": "#fc4e2a" }
+],
+
+"_section5": "Data for Budget by School Page",
+
+"JSOM_Expense":[
+  { "expenseType": "Salaries & Wages (Education)", "expenseAmount": 21889331, "color": "#0bbbbb" },
+  { "expenseType": "Other Research Expenses", "expenseAmount": 306000, "color": "#fc4e2a" },
+  { "expenseType": "Accounting & Business Law Rese", "expenseAmount": 368500, "color": "#9ebcda" },
+  { "expenseType": "Cohort MBA", "expenseAmount": 160000, "color": "#b10026" },
+  { "expenseType": "Ctr Excellence In Corp Govern", "expenseAmount": 68802, "color": "#0bbbbb" },
+  { "expenseType": "Ctr Innov & Entrepreneurship", "expenseAmount": 44769, "color": "#2ad8fc" },
+  { "expenseType": "Ctr Intelligent Supply Network", "expenseAmount": 2476, "color": "#3cacfd" },
+  { "expenseType": "Executive Education", "expenseAmount": 1301620, "color": "#1ae3e1" },
+  { "expenseType": "Finance & MgrlEcon Research", "expenseAmount": 450500, "color": "#2ad8fc" },
+  { "expenseType": "Healthcare Management Research", "expenseAmount": 54500, "color": "#1ae3e1" },
+  { "expenseType": "Information Systems", "expenseAmount": 429500, "color": "#3cacfd" },
+  { "expenseType": "Management", "expenseAmount": 52139217, "color": "#00b18b" },
+  { "expenseType": "Management External Affairs", "expenseAmount": 207135, "color": "#bb0b0b" },
+  { "expenseType": "Marketing Research", "expenseAmount": 267000, "color": "#e31a1c" },
+  { "expenseType": "Operations Management", "expenseAmount": 353995, "color": "#dabc9e" },
+  { "expenseType": "Org, Strategy & Intnl Mgt Research", "expenseAmount": 326000, "color": "#fd8d3c" },
+  { "expenseType": "Other Research", "expenseAmount": 100002, "color": "#00b18b" }
+],
+
+"NSM_Expense":[
+  { "expenseType": "Salaries & Wages (Education)", "expenseAmount": 23000656, "color": "#00b18b" },
+  { "expenseType": "Salaries & Wages (Research)", "expenseAmount": 80340, "color": "#b10026" },
+  { "expenseType": "Other Research Expenses", "expenseAmount": 2833086, "color": "#1ae3e1" },
+  { "expenseType": "Biological Sciences", "expenseAmount": 1940941, "color": "#2ad8fc" },
+  { "expenseType": "Chemistry", "expenseAmount": 1282299, "color": "#9ebcda" },
+  { "expenseType": "Mathematical Sciences", "expenseAmount": 1820320, "color": "#3cacfd" },
+  { "expenseType": "NS&M Deans Office", "expenseAmount": 4969524, "color": "#0bbbbb" },
+  { "expenseType": "Nanotech Institute", "expenseAmount": 126935, "color": "#bb0b0b" },
+  { "expenseType": "Physics", "expenseAmount": 1033290, "color": "#dabc9e" },
+  { "expenseType": "Science/Math Education", "expenseAmount": 302632, "color": "#e31a1c" },
+  { "expenseType": "Space Sciences", "expenseAmount": 431495, "color": "#fc4e2a" },
+  { "expenseType": "Sustain Earth Systems Science", "expenseAmount": 514821, "color": "#fd8d3c" }
+],
+
+"AHT_Expense":[
+  { "expenseType": "Salaries & Wages (Education)", "expenseAmount": 12837254, "color": "#00b18b" },
+  { "expenseType": "Other Research Expenses", "expenseAmount": 163000, "color": "#0bbbbb" }
+],
+
+"AHT_Revenue":[
+  { "revenueType": "Art and Performance", "revenueAmount": 117000, "color": "#0bbbbb" },
+  { "revenueType": "Arts Humanities & Technology", "revenueAmount": 9065300, "color": "#00b18b" },
+  { "revenueType": "Centers For Values", "revenueAmount": 5100, "color": "#1ae3e1" }
+],
+
+"Expenses_By_School":[
+  { "school": "BBS", "expenseAmount": 23339079, "color": "#2ad8fc" },
+  { "school": "ECS", "expenseAmount": 62517877, "color": "#0bbbbb" },
+  { "school": "EPPS", "expenseAmount": 14291790, "color": "#9ebcda" },
+  { "school": "IS", "expenseAmount": 2696966, "color": "#fd8d3c" },
+  { "school": "JSOM", "expenseAmount": 75861155, "color": "#00b18b" },
+  { "school": "NSM", "expenseAmount": 38144913, "color": "#1ae3e1" },
+  { "school": "AHT", "expenseAmount": 13000254, "color": "#dabc9e" },
+  { "school": "Other Instructional Support", "expenseAmount": 16347257, "color": "#3cacfd" }
 ]
 }

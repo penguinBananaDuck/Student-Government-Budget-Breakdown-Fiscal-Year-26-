@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Dashboard</title>
+    <title>Budget Cuts - Comparison</title>
     
     <link rel="stylesheet" href="styles.css">
 
@@ -18,45 +18,52 @@
         <nav class="sidebar">
             <h2>UTD Budget</h2>
             <ul>
-                <li><a href="index.html" class="active">Fall 25 - Spring 26 Budget</a></li>
+                <li><a href="index.html">Fall 25 - Spring 26 Budget</a></li>
                 <li><a href="budgetCuts.html">Budget Cuts</a></li>
-                <li><a href="budgetOverTime.html">Budget Over Time</a></li>
+                <li><a href="#">Budget Over Time</a></li>
                 <li><a href="studentFees.html">Student Fees</a></li>
-                <li><a href="schoolBudgets.html">Budget by School </a></li>
+                <li><a href="schoolBudgets.html" class="active">Budget by School</a></li>
                 <li><a href="aux-budget.html">Auxiliary Budget</a></li>
                 <li><a href="#">Credits</a></li>
-                
-
             </ul>
         </nav>
 
         <main class="main-content">
             <header>
-                <h1>The University of Texas at Dallas Budget Breakdown</h1>
-                <p>Fiscal Year 2026</p>
+                <h1>Budget By School</h1>
             </header>
 
             <section class="charts-grid">
-                
+
                 <div class="chart-card">
-                    <h3>Operating Revenue</h3>
-                    <div id="chart_Operating_Revenue26"></div>
+                    <h3>JSOM Expenses</h3>
+                    <div id="chart_JSOM_Expenses"></div>
                 </div>
 
                 <div class="chart-card">
-                    <h3>Non-Operating Revenue</h3>
-                    <div id="chart_Non-operating_Revenue26"></div>
+                    <h3>NSM Expenses</h3>
+                    <div id="chart_NSM_Expenses"></div>
                 </div>
 
                 <div class="chart-card">
-                    <h3>ExpenseS</h3>
-                    <div id="chart_Expense26"></div>
+                    <h3>AHT Expenses</h3>
+                    <div id="chart_AHT_Expenses"></div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>AHT Revenue</h3>
+                    <div id="chart_AHT_Revenue"></div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Total Expenses by School</h3>
+                    <div id="chart_Expenses_School"></div>
                 </div>
 
             </section>
         </main>
     </div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
