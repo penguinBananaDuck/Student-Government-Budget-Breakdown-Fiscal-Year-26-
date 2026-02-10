@@ -593,6 +593,10 @@ function buildBOTGraphs(divID, datasetKey, isExpense) {
         if (divID === "chart_JSOM_Expenses") datasetKey = "JSOM_Expense";
         if (divID === "chart_NSM_Expenses") datasetKey = "NSM_Expense";
         if (divID === "chart_AHT_Expenses") datasetKey = "AHT_Expense";
+        if (divID === "chart_BBS_Expenses") datasetKey = "bbs_Expense";
+        if (divID === "chart_EPPS_Expenses") datasetKey = "epps_Expense";
+        if (divID === "chart_IS_Expenses") datasetKey = "is_Expense";
+        
 
         buildFY26Graphs(divID, datasetKey, true);
 
