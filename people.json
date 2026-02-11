@@ -1,0 +1,48 @@
+{
+  "contributors": [
+    {
+      "name": "Velit Consectetur",
+      "role": "Adipiscing Elit",
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor"
+    },
+    {
+      "name": "Ipsum Dolorem",
+      "role": "Magna Aliqua",
+      "description": "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi"
+    },
+    {
+      "name": "Sed Tempor",
+      "role": "Incididunt Labore",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore"
+    },
+    {
+      "name": "Quis Nostrud",
+      "role": "Exercitation Ullamco",
+      "description": "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia"
+    },
+    {
+      "name": "Minim Veniam",
+      "role": "Laboris Nisi",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium"
+    },
+    {
+      "name": "Aliqua Enim",
+      "role": "Commodo Consequat",
+      "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit"
+    }
+  ],
+  "acknowledgments": [
+    {
+      "name": "Deserunt Mollit",
+      "description": "Totam rem aperiam eaque ipsa quae ab illo inventore veritatis"
+    },
+    {
+      "name": "Fugiat Nulla",
+      "description": "At vero eos et accusamus et iusto odio dignissimos ducimus"
+    },
+    {
+      "name": "Pariatur Excepteur",
+      "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet"
+    }
+  ]
+}
