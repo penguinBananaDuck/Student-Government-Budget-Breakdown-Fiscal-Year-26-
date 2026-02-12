@@ -16,33 +16,6 @@
     { "expenseType": "Other Research Expenses", "expenseAmount": 7992000.00, "color": "#b10026" }
   ],
 
-  "bbs_Expense": [
-    { "expenseType": "Salaries and Wages (Education)", "expenseAmount": 10975474, "color": "#00b18b" },
-    { "expenseType": "Salaries and Wages (Research)", "expenseAmount": 518028, "color": "#0bbbbb" },
-    { "expenseType": "Other Research Expenses", "expenseAmount": 1237000, "color": "#1ae3e1" },
-    { "expenseType": "Behavioral and Brain Sciences", "expenseAmount": 6612333, "color": "#2ad8fc" },
-    { "expenseType": "Neuroscience", "expenseAmount": 1732326, "color": "#3cacfd" },
-    { "expenseType": "Psychology", "expenseAmount": 1379355, "color": "#9ebcda" },
-    { "expenseType": "Speech Language Hearing", "expenseAmount": 884563, "color": "#dabc9e" }
-  ],
-
-  "epps_Expense": [
-    { "expenseType": "Salaries and Wages (Education)", "expenseAmount": 8250727, "color": "#00b18b" },
-    { "expenseType": "Other Research Expenses", "expenseAmount": 192000, "color": "#0bbbbb" },
-    { "expenseType": "Political Science", "expenseAmount": 50077, "color": "#1ae3e1" },
-    { "expenseType": "Economic Political and Policy", "expenseAmount": 5833698, "color": "#2ad8fc" },
-    { "expenseType": "Geography & Geospatial", "expenseAmount": 2055, "color": "#3cacfd" },
-    { "expenseType": "IPE-PPE", "expenseAmount": 2313, "color": "#9ebcda" },
-    { "expenseType": "Institute for Urban Policy", "expenseAmount": 1184, "color": "#dabc9e" },
-    { "expenseType": "Public & Nonprofit Management", "expenseAmount": 356, "color": "#fd8d3c" },
-    { "expenseType": "Sociology", "expenseAmount": 467, "color": "#fc4e2a" },
-    { "expenseType": "Texas Schools Project", "expenseAmount": 59067, "color": "#e31a1c" }
-  ],
-
-  "is_Expense": [
-    { "expenseType": "Salaries and Wages (Education)", "expenseAmount": 1639304, "color": "#00b18a" },
-    { "expenseType": "Interdisciplinary Studies", "expenseAmount": 1057662, "color": "#0bbbbb" }
-  ],
 
   "_section1": "Data for Fiscal Year 2026 Page",
 
@@ -522,6 +495,34 @@
   { "revenueType": "Arts Humanities & Technology", "revenueAmount": 9065300, "color": "#00b18b" },
   { "revenueType": "Centers For Values", "revenueAmount": 5100, "color": "#1ae3e1" }
 ],
+
+"BBS_Expense": [
+    { "expenseType": "Salaries and Wages (Education)", "expenseAmount": 10975474, "color": "#00b18b" },
+    { "expenseType": "Salaries and Wages (Research)", "expenseAmount": 518028, "color": "#0bbbbb" },
+    { "expenseType": "Other Research Expenses", "expenseAmount": 1237000, "color": "#1ae3e1" },
+    { "expenseType": "Behavioral and Brain Sciences", "expenseAmount": 6612333, "color": "#2ad8fc" },
+    { "expenseType": "Neuroscience", "expenseAmount": 1732326, "color": "#3cacfd" },
+    { "expenseType": "Psychology", "expenseAmount": 1379355, "color": "#9ebcda" },
+    { "expenseType": "Speech Language Hearing", "expenseAmount": 884563, "color": "#dabc9e" }
+  ],
+
+  "EPPS_Expense": [
+    { "expenseType": "Salaries and Wages (Education)", "expenseAmount": 8250727, "color": "#00b18b" },
+    { "expenseType": "Other Research Expenses", "expenseAmount": 192000, "color": "#0bbbbb" },
+    { "expenseType": "Political Science", "expenseAmount": 50077, "color": "#1ae3e1" },
+    { "expenseType": "Economic Political and Policy", "expenseAmount": 5833698, "color": "#2ad8fc" },
+    { "expenseType": "Geography & Geospatial", "expenseAmount": 2055, "color": "#3cacfd" },
+    { "expenseType": "IPE-PPE", "expenseAmount": 2313, "color": "#9ebcda" },
+    { "expenseType": "Institute for Urban Policy", "expenseAmount": 1184, "color": "#dabc9e" },
+    { "expenseType": "Public & Nonprofit Management", "expenseAmount": 356, "color": "#fd8d3c" },
+    { "expenseType": "Sociology", "expenseAmount": 467, "color": "#fc4e2a" },
+    { "expenseType": "Texas Schools Project", "expenseAmount": 59067, "color": "#e31a1c" }
+  ],
+
+  "IS_Expense": [
+    { "expenseType": "Salaries and Wages (Education)", "expenseAmount": 1639304, "color": "#00b18a" },
+    { "expenseType": "Interdisciplinary Studies", "expenseAmount": 1057662, "color": "#0bbbbb" }
+  ],
 
 "Expenses_By_School":[
   { "school": "BBS", "expenseAmount": 23339079, "color": "#2ad8fc" },
